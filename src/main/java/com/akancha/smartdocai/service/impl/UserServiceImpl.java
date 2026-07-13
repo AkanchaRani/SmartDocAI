@@ -3,6 +3,7 @@ package com.akancha.smartdocai.service.impl;
 import com.akancha.smartdocai.dto.UserRequest;
 import com.akancha.smartdocai.dto.UserResponse;
 import com.akancha.smartdocai.entity.User;
+import com.akancha.smartdocai.exception.ResourceNotFoundException;
 import com.akancha.smartdocai.repository.UserRepository;
 import com.akancha.smartdocai.service.UserService;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    // Save User
     @Override
     public UserResponse saveUser(UserRequest request) {
 
@@ -38,6 +40,7 @@ public class UserServiceImpl implements UserService {
         );
     }
 
+    // Get All Users
     @Override
     public List<UserResponse> getAllUsers() {
 
@@ -53,14 +56,13 @@ public class UserServiceImpl implements UserService {
                 .toList();
     }
 
+    // Get User By Id
     @Override
     public UserResponse getUserById(Long id) {
 
-        User user = userRepository.findById(id).orElse(null);
-
-        if (user == null) {
-            return null;
-        }
+        User user = userRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found with id : " + id));
 
         return new UserResponse(
                 user.getId(),
@@ -70,14 +72,13 @@ public class UserServiceImpl implements UserService {
         );
     }
 
+    // Update User
     @Override
     public UserResponse updateUser(Long id, UserRequest request) {
 
-        User user = userRepository.findById(id).orElse(null);
-
-        if (user == null) {
-            return null;
-        }
+        User user = userRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found with id : " + id));
 
         user.setName(request.getName());
         user.setEmail(request.getEmail());
@@ -94,8 +95,14 @@ public class UserServiceImpl implements UserService {
         );
     }
 
+    // Delete User
     @Override
     public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+
+        User user = userRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found with id : " + id));
+
+        userRepository.delete(user);
     }
 }

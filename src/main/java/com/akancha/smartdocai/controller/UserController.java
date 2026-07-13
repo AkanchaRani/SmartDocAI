@@ -2,7 +2,9 @@ package com.akancha.smartdocai.controller;
 
 import com.akancha.smartdocai.dto.UserRequest;
 import com.akancha.smartdocai.dto.UserResponse;
+import com.akancha.smartdocai.response.ApiResponse;
 import com.akancha.smartdocai.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,36 +21,68 @@ public class UserController {
 
     // Create User
     @PostMapping
-    public UserResponse saveUser(@RequestBody UserRequest request) {
-        return userService.saveUser(request);
+    public ApiResponse<UserResponse> saveUser(@Valid @RequestBody UserRequest request) {
+
+        UserResponse user = userService.saveUser(request);
+
+        return new ApiResponse<>(
+                true,
+                "User created successfully",
+                user
+        );
     }
 
     // Get All Users
     @GetMapping
-    public List<UserResponse> getAllUsers() {
-        return userService.getAllUsers();
+    public ApiResponse<List<UserResponse>> getAllUsers() {
+
+        List<UserResponse> users = userService.getAllUsers();
+
+        return new ApiResponse<>(
+                true,
+                "Users fetched successfully",
+                users
+        );
     }
 
     // Get User By Id
     @GetMapping("/{id}")
-    public UserResponse getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    public ApiResponse<UserResponse> getUserById(@PathVariable Long id) {
+
+        UserResponse user = userService.getUserById(id);
+
+        return new ApiResponse<>(
+                true,
+                "User fetched successfully",
+                user
+        );
     }
 
     // Update User
     @PutMapping("/{id}")
-    public UserResponse updateUser(@PathVariable Long id,
-                                   @RequestBody UserRequest request) {
+    public ApiResponse<UserResponse> updateUser(
+            @PathVariable Long id,
+            @Valid @RequestBody UserRequest request) {
 
-        return userService.updateUser(id, request);
+        UserResponse user = userService.updateUser(id, request);
+
+        return new ApiResponse<>(
+                true,
+                "User updated successfully",
+                user
+        );
     }
 
     // Delete User
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id) {
+    public ApiResponse<String> deleteUser(@PathVariable Long id) {
 
         userService.deleteUser(id);
 
-        return "User Deleted Successfully";
+        return new ApiResponse<>(
+                true,
+                "User deleted successfully",
+                null
+        );
     }
 }
