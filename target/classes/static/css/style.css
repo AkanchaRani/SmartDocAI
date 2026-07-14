@@ -1,0 +1,371 @@
+/* SmartDocAI - basic stylesheet*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f8;
+    color: #222222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ---------- Top Navbar ---------- */
+.navbar {
+    background-color: #1a4fb4;
+    color: #ffffff;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.navbar .brand {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.navbar .logout-btn {
+    background-color: #ffffff;
+    color: #1a4fb4;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.navbar .logout-btn:hover {
+    background-color: #e6e6e6;
+}
+
+/* ---------- Layout ---------- */
+.layout {
+    display: flex;
+    min-height: calc(100vh - 55px);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    width: 200px;
+    background-color: #f2f4f8;
+    border-right: 1px solid #dddddd;
+    padding: 15px 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 20px;
+    color: #333333;
+    font-size: 14px;
+}
+
+.sidebar a:hover {
+    background-color: #e2e7f2;
+}
+
+.sidebar a.active {
+    background-color: #1a4fb4;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+    flex: 1;
+    padding: 20px 30px;
+}
+
+.page-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #1a4fb4;
+}
+
+/* ---------- Cards ---------- */
+.card-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #f7f8fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px 20px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.card h3 {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a4fb4;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    background-color: #1a4fb4;
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background-color: #143d8c;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #565e64;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+}
+
+.btn-danger:hover {
+    background-color: #b52b27;
+}
+
+.btn-small {
+    padding: 4px 12px;
+    font-size: 12px;
+}
+
+/* ---------- Forms ---------- */
+.form-box {
+    background-color: #f7f8fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #444444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* ---------- Tables ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #dddddd;
+    padding: 8px 10px;
+    font-size: 13px;
+    text-align: left;
+}
+
+table th {
+    background-color: #eef1f7;
+    color: #333333;
+}
+
+table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* ---------- Login Page ---------- */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f4f8;
+}
+
+.login-box {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 30px 35px;
+    width: 320px;
+}
+
+.login-box h2 {
+    color: #1a4fb4;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-box .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* ---------- Messages ---------- */
+.message {
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.hidden {
+    display: none;
+}
+
+.doc-output {
+    background-color: #f7f8fa;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 15px;
+    white-space: pre-wrap;
+    font-size: 13px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.action-links a, .action-links button {
+    margin-right: 5px;
+}
+/* ---------- Register Page ---------- */
+
+.login-container {
+    width: 420px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #dddddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #1a4fb4;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.login-container label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #1a4fb4;
+    box-shadow: 0 0 4px rgba(26,79,180,0.3);
+}
+
+.login-container button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 11px;
+    background: #1a4fb4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background: #143d8c;
+}
+
+.login-container p {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.login-container a {
+    color: #1a4fb4;
+    font-weight: bold;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+#message {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}

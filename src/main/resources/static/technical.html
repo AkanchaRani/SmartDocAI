@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartDocAI - Technical Information</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">SmartDocAI</div>
+    <div class="nav-right">
+        <span>Welcome, <span id="loggedInUserName"></span></span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="layout">
+    <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="projects.html">Projects</a>
+        <a href="api.html">API Documentation</a>
+        <a href="database.html">Database Schema</a>
+        <a href="technical.html" class="active">Technical Info</a>
+        <a href="generate.html">Generate Docs</a>
+        <a href="documentation.html">Documentation</a>
+    </div>
+
+    <div class="main-content">
+        <div class="page-title">Technical Information</div>
+
+        <div class="form-group" style="max-width:300px;">
+            <label for="projectSelect">Select Project</label>
+            <select id="projectSelect" onchange="loadTechnicalInfo()"></select>
+        </div>
+
+        <div id="formMessage"></div>
+
+        <div class="form-box">
+            <h3 id="formHeading">Add Technical Info</h3>
+            <input type="hidden" id="infoId">
+
+            <div class="form-group">
+                <label for="features">Features</label>
+                <textarea id="features" placeholder="List the main features"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="requirements">Requirements</label>
+                <textarea id="requirements" placeholder="Software / hardware requirements"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="installationSteps">Installation Steps</label>
+                <textarea id="installationSteps" placeholder="Step by step installation"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="architecture">Architecture</label>
+                <textarea id="architecture" placeholder="e.g. MVC Architecture"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="technologyStack">Technology Stack</label>
+                <input type="text" id="technologyStack" placeholder="Spring Boot, MySQL, HTML/CSS/JS">
+            </div>
+
+            <button class="btn" onclick="saveTechnicalInfo()">Save</button>
+            <button class="btn btn-secondary" onclick="resetForm()">Cancel</button>
+        </div>
+
+        <h3 style="margin-bottom:10px;">Technical Info For Selected Project</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Features</th>
+                    <th>Requirements</th>
+                    <th>Tech Stack</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="infoBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/technical.js"></script>
+</body>
+</html>

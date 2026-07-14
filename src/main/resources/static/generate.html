@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartDocAI - Generate Documentation</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">SmartDocAI</div>
+    <div class="nav-right">
+        <span>Welcome, <span id="loggedInUserName"></span></span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="layout">
+    <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="projects.html">Projects</a>
+        <a href="api.html">API Documentation</a>
+        <a href="database.html">Database Schema</a>
+        <a href="technical.html">Technical Info</a>
+        <a href="generate.html" class="active">Generate Docs</a>
+        <a href="documentation.html">Documentation</a>
+    </div>
+
+    <div class="main-content">
+        <div class="page-title">AI Documentation Generator</div>
+
+        <p style="margin-bottom:15px; color:#555;">
+            Select a project below and click Generate Documentation.
+            (Note: Documentation is generated using dummy logic for now. AI based
+            generation using Gemini / OpenAI will be added in a future update.)
+        </p>
+
+        <div class="form-box">
+            <div class="form-group">
+                <label for="projectSelect">Select Project</label>
+                <select id="projectSelect"></select>
+            </div>
+
+            <button class="btn" onclick="generateDocumentation()">Generate Documentation</button>
+        </div>
+
+        <div id="generateMessage"></div>
+
+        <div id="resultBox" class="hidden">
+            <h3 style="margin-bottom:10px;">Generated Documentation</h3>
+            <div class="doc-output" id="docOutput"></div>
+            <br>
+            <button class="btn" id="downloadBtn">Download as PDF</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/generate.js"></script>
+</body>
+</html>

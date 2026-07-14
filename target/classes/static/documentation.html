@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartDocAI - Documentation</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">SmartDocAI</div>
+    <div class="nav-right">
+        <span>Welcome, <span id="loggedInUserName"></span></span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="layout">
+    <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="projects.html">Projects</a>
+        <a href="api.html">API Documentation</a>
+        <a href="database.html">Database Schema</a>
+        <a href="technical.html">Technical Info</a>
+        <a href="generate.html">Generate Docs</a>
+        <a href="documentation.html" class="active">Documentation</a>
+    </div>
+
+    <div class="main-content">
+        <div class="page-title">View Documentation</div>
+
+        <div class="form-group" style="max-width:300px;">
+            <label for="projectSelect">Select Project</label>
+            <select id="projectSelect" onchange="loadDocumentation()"></select>
+        </div>
+
+        <div id="docMessage"></div>
+
+        <div id="resultBox" class="hidden">
+            <div class="doc-output" id="docOutput"></div>
+            <br>
+            <button class="btn" id="downloadBtn">Download as PDF</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/documentation.js"></script>
+</body>
+</html>

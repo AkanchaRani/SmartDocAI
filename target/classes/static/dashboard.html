@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartDocAI - Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">SmartDocAI</div>
+    <div class="nav-right">
+        <span>Welcome, <span id="loggedInUserName"></span></span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="layout">
+    <div class="sidebar">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="projects.html">Projects</a>
+        <a href="api.html">API Documentation</a>
+        <a href="database.html">Database Schema</a>
+        <a href="technical.html">Technical Info</a>
+        <a href="generate.html">Generate Docs</a>
+        <a href="documentation.html">Documentation</a>
+    </div>
+
+    <div class="main-content">
+        <div class="page-title">Dashboard</div>
+
+        <div class="card-row">
+            <div class="card">
+                <h3>Total Projects</h3>
+                <p id="totalProjects">0</p>
+            </div>
+            <div class="card">
+                <h3>Total Documents Generated</h3>
+                <p id="totalDocuments">0</p>
+            </div>
+        </div>
+
+        <div class="card-row">
+            <a href="projects.html" class="btn">+ New Project</a>
+            <a href="generate.html" class="btn btn-secondary">Generate Documentation</a>
+        </div>
+
+        <h3 style="margin-bottom:10px;">Recent Projects</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Technology</th>
+                    <th>Status</th>
+                    <th>Created Date</th>
+                </tr>
+            </thead>
+            <tbody id="recentProjectsBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
